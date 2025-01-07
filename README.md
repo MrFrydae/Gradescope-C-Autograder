@@ -20,16 +20,17 @@ Ensure you have the following installed on your system:
 ## Usage
 
 1. **Prepare the Autograder:**
-    - Place the autograder source code in the `src/` directory.
+    - Place the autograder source code in the `src/` directory.  Build the whole autograder and a sample submission
 
 2. **Prepare Student Submissions:**
-    - Place sample student submissions in the `submission/` directory.
+    - Copy sample student submission  files into the `submission/` directory.
 
 3. **Run the Autograder:**
     - Execute the `test_autograder.sh` script to build and run the autograder:
       ```sh
       ./test_autograder.sh
       ```
+    - That will also build the zip file that you'll upload to GradeScope.  It will include the source files in the src/ file excluding files named the same as the the files in the submission/ directory.
 
 ## Script Details
 
@@ -38,7 +39,6 @@ The `test_autograder.sh` script performs the following steps:
 1. **Create Autograder Archive:**
     - Removes any existing `autograder.zip` file.
     - Zips the contents of the `src/` directory into `autograder.zip`, excluding object files, the `runner` executable, and any "submission" files (files with matching names in both `src/` and `submission` directories).
-    - Adds files from the `submission/` directory to `autograder.zip`.
 
 2. **Setup Autograder Directory:**
     - Removes any existing `autograder` directory.
