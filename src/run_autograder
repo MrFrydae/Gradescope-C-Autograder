@@ -1,0 +1,19 @@
+#!/bin/bash
+
+mkdir build
+
+(cd ./source && cp -r . ../build)
+(cd ./submission && cp -r . ../build)
+
+cd build
+
+make > build_output.txt 2>&1 || {
+  cat build_output.txt
+  cp ./error_template.json ../results/results.json
+  exit 1
+}
+
+./runner
+
+cp output.json ../results/results.json
+
