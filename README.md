@@ -20,7 +20,11 @@ Ensure you have the following installed on your system:
 ## Usage
 
 1. **Prepare the Autograder:**
-    - Place the autograder source code in the `src/` directory.  Build the whole autograder and a sample submission
+    - Place the autograder source code in the `src/` directory.  These files already exist:
+        - main.c Runs the tests
+        - test_tools.c/.h A place to put functions to support your tests
+        - test_details.h Just the calls on check_one_thing that make up your tests
+     - Build the whole autograder and a sample submission
 
 2. **Prepare Student Submissions:**
     - Copy sample student submission  files into the `submission/` directory.
