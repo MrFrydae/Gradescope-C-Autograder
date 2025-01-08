@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <assert.h>
+#include "test_tools.h"
 
 FILE *result_file;
 bool is_first_test = true;
@@ -39,7 +40,7 @@ int main() {
     result_file = fopen("output.json","w");
     assert(result_file != NULL);
 
-    fprintf(result_file, "{  \"visibility\": \"after_due_date\", \n"
+    fprintf(result_file, "{  \"visibility\": \"visible\", \n"
                        "  \"stdout_visibility\": \"visible\", \n"
                        "  \"tests\": [\n");
 #include "test_details.h"
