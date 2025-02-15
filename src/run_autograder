@@ -25,6 +25,3 @@ python3 result_parser.py \
   --linter clang_tidy_output.txt \
   --lintercode $lintercode \
   --linterpoints 5 > ../results/results.json
-
-#cp output.json ../results/results.json
-

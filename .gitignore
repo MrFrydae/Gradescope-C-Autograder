@@ -2,4 +2,3 @@ autograder
 cmake-build-debug
 .idea
 autograder.zip
-src/pnpm-lock.yaml
