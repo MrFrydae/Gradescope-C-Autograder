@@ -5,6 +5,8 @@ mkdir build
 (cd ./source && cp -r . ../build)
 (cd ./submission && cp -r . ../build)
 
+ls ./submission > submission_files.txt
+
 cd build
 
 make > build_output.txt 2>&1 || {
@@ -15,5 +17,11 @@ make > build_output.txt 2>&1 || {
 
 ./runner
 
-cp output.json ../results/results.json
+clang-tidy --config-file=./clang-tidy -warnings-as-errors=* $(cat ../submission_files.txt) 2> /dev/null > clang_tidy_output.txt
+lintercode=$?
 
+python3 result_parser.py \
+  --output output.json \
+  --linter clang_tidy_output.txt \
+  --lintercode $lintercode \
+  --linterpoints 5 > ../results/results.json
